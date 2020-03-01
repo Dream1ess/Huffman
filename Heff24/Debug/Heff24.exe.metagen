@@ -18,4 +18,5 @@ Class Heff24.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
+    Boolean Decode : Public
     Boolean CodeDecode : Public

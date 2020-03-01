@@ -15,6 +15,7 @@ namespace Heff24 {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
+		bool Decode = false;
 		bool CodeDecode = false;
 
 		MyForm(void)
@@ -157,7 +158,7 @@ namespace Heff24 {
 			// openFileDialog1
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
-			this->openFileDialog1->Filter = L"Текстовые файлы (*.txt)|*.txt";
+			this->openFileDialog1->Filter = L"Текстовые файлы (*.txt)|*.txt | Сжатые файлы(*.huff)|*.huff";
 			// 
 			// MyForm
 			// 
@@ -194,15 +195,20 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 
 	//выпарсить расширение файла
 	String ^FName = this->openFileDialog1->SafeFileName;
-	String ^fRas = FName->Substring(FName->Length-3);
+	String^ fRas = FName->Substring(FName->Length - 3);
+	String^ fRas2 = FName->Substring(FName->Length - 4);
 	//исходя из расширения файла 
 	//определяемся какое действие мы будем делать с этим файлом
+	Decode = fRas2 == "huff" ? true : false;
 	CodeDecode = fRas == "txt" ? true : false;
-	
+
 	if (CodeDecode)
 		this->button2->Visible = true;
 	else
 		this->button5->Visible = true;
+	if (Decode)
+		this->button5->Visible = true;
+
 }
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	//открыть файл по пути: this->openFileDialog1->FileName

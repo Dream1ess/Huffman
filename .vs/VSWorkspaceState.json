@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Heff24",
+    "\\Heff24\\Debug",
+    "\\Heff24\\Heff24"
   ],
+  "SelectedNode": "\\Heff24\\Heff24\\MyForm.h",
   "PreviewInSolutionExplorer": false
 }
